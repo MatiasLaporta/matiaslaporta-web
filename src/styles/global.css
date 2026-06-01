@@ -29,6 +29,14 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-primary shadow-glow transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background;
   }
 
+  .btn-cyan {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-primary transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+    box-shadow: 0 0 50px -12px rgba(93, 202, 209, 0.7);
+  }
+  .btn-cyan:hover {
+    box-shadow: 0 0 60px -8px rgba(93, 202, 209, 0.95);
+  }
+
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-background px-6 py-3 text-sm font-semibold text-primary transition-all duration-200 hover:border-secondary hover:text-secondary;
   }
@@ -45,6 +53,15 @@
 /* Particle canvas */
 #tsparticles {
   pointer-events: none;
+}
+
+/* Sticky header: palette white at the top, light grey once the user scrolls */
+#site-header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#site-header.scrolled {
+  background-color: #d9dde3;
+  box-shadow: 0 4px 18px -6px rgba(26, 43, 86, 0.28);
 }
 
 /* Glow utility for tech cards */

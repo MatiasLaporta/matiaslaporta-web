@@ -1,8 +1,8 @@
 ---
 const credentials = [
-  { value: '10 años', label: 'Consultoría estratégica' },
-  { value: '6 años', label: 'Dirección comercial' },
-  { value: 'IA', label: 'Automatización & ecosistemas' },
+  { value: '+10 años', label: 'Consultoría estratégica' },
+  { value: '+7 años', label: 'Experiencia comercial' },
+  { value: '+5 años', label: 'Ecommerce y Marketing' },
 ];
 ---
 
@@ -10,30 +10,38 @@ const credentials = [
   <div class="container-tight md:grid md:grid-cols-2 md:items-center md:gap-12">
     <div class="reveal relative">
       <div class="absolute -inset-4 rounded-2xl bg-gradient-to-br from-secondary/20 via-secondary/5 to-tertiary/20 blur-2xl"></div>
-      <div class="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl shadow-xl flex items-center justify-center bg-primary border border-primary/20 p-8 overflow-hidden">
-        <div
-          class="pointer-events-none absolute inset-0 opacity-[0.14]"
-          style="background-image: linear-gradient(rgba(243,205,116,1) 1px, transparent 1px), linear-gradient(90deg, rgba(243,205,116,1) 1px, transparent 1px); background-size: 32px 32px;"
-          aria-hidden="true"
-        ></div>
-        <span class="relative text-center text-lg font-medium text-white">
-          Imagen de Perfil / Logo
-        </span>
+      <div class="relative mx-auto w-full max-w-md rounded-2xl border border-primary/20 bg-primary p-5 shadow-xl">
+        <img
+          src="/perfil.png"
+          alt="Matías Laporta"
+          class="aspect-square w-full rounded-xl object-cover"
+        />
+        <a
+          href="https://www.linkedin.com/in/matias-laporta/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-accent/50 bg-white/5 px-6 py-3 text-sm font-semibold text-background transition hover:border-secondary hover:bg-secondary/10 hover:text-secondary"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+          </svg>
+          Ver mi experiencia en LinkedIn
+        </a>
       </div>
     </div>
 
     <div class="reveal mt-10 md:mt-0">
-      <span class="px-4 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Autoridad</span>
+      <span class="px-4 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Sobre mí</span>
       <h2 class="font-display text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
-        Experiencia corporativa. <span class="text-secondary [text-shadow:_0_0_20px_rgba(243,205,116,0.3)]">Ejecución ágil.</span>
+        Experiencia corporativa. <span class="text-secondary [text-shadow:_0_0_20px_rgba(243,205,116,0.3)]">Metodología ágil.</span>
       </h2>
 
       <p class="mt-8 mb-6 text-lg leading-relaxed text-gray-600">
-        Soy Matías Laporta. Combino una década de trayectoria en consultoría estratégica, 6 años en dirección comercial y un dominio profundo de la Inteligencia Artificial y la automatización. Entiendo el rigor de los negocios B2B y B2C, pero ejecuto con la velocidad de la tecnología moderna.
+        Soy Matías Laporta, Asesor Consultivo. Combino una década de trayectoria en consultoría estratégica, un dominio profundo de Inteligencia Artificial y automatización. Conozco los procesos de los negocios B2B y B2C, por lo que implemento estrategias basada en experiencias reales.
       </p>
 
       <p class="text-lg font-semibold leading-relaxed text-primary">
-        No vendo plantillas; instalo ecosistemas predecibles en tu empresa.
+        No vendo plantillas, diseño ecosistemas integrales de crecimiento predecible.
       </p>
 
       <dl class="mt-10 grid grid-cols-3 gap-4 border-t border-primary/10 pt-6">
