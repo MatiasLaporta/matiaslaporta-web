@@ -1,0 +1,90 @@
+---
+const rows = [
+  {
+    axis: 'Adquisición',
+    traditional: 'Spam y agencias externas genéricas que no conocen tu negocio',
+    ours: 'Embudos segmentados y ecosistemas automatizados conectados a tu stack',
+  },
+  {
+    axis: 'Ejecución',
+    traditional: 'Consultoría teórica sin manos en la operación',
+    ours: 'Implementación táctica y dirección comercial externa con KPIs reales',
+  },
+  {
+    axis: 'Tecnología',
+    traditional: 'Herramientas inconexas, datos en silos, hand-offs manuales',
+    ours: 'CRM, automatizaciones e IA integradas en un único sistema operativo',
+  },
+  {
+    axis: 'Medición',
+    traditional: 'Reportes vanity sin atribución comercial',
+    ours: 'Pipeline, costo de adquisición y revenue por canal en tiempo real',
+  },
+  {
+    axis: 'Resultado',
+    traditional: 'Pipeline en montaña rusa, decisiones reactivas',
+    ours: 'Sistema replicable que escala con tu equipo',
+  },
+];
+---
+
+<section id="comparacion" class="bg-background py-24 lg:py-32">
+  <div class="container-tight">
+    <div class="reveal text-center">
+      <span class="px-4 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-bold inline-block mb-4 uppercase tracking-wider">El Contraste</span>
+      <h2 class="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
+        Lo Tradicional <span class="text-gray-400">vs.</span> <span class="text-primary underline decoration-secondary decoration-[3px] underline-offset-4">Infraestructura de Conversión</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
+        Mismo equipo, mismo presupuesto, dos formas radicalmente distintas de generar pipeline.
+      </p>
+    </div>
+
+    <div class="reveal mt-14 overflow-hidden rounded-2xl border border-primary/10 shadow-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-[200px_1fr_1fr]">
+        <div class="hidden bg-gray-50 px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-gray-500 md:block">
+          Dimensión
+        </div>
+        <div class="bg-background px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+          Lo Tradicional
+        </div>
+        <div class="bg-primary px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-secondary border-l border-secondary/30">
+          Nuestra Infraestructura
+        </div>
+
+        {rows.map((row, i) => (
+          <>
+            <div class={`hidden bg-gray-50 px-6 py-5 font-display font-semibold text-primary md:block ${i !== rows.length - 1 ? 'border-b border-primary/10' : ''}`}>
+              {row.axis}
+            </div>
+
+            <div class={`flex flex-col gap-1 bg-background px-6 py-5 ${i !== rows.length - 1 ? 'border-b border-primary/10' : ''}`}>
+              <span class="text-xs font-bold uppercase tracking-[0.18em] text-gray-400 md:hidden">
+                {row.axis} · Lo Tradicional
+              </span>
+              <span class="flex items-start gap-3 text-base leading-relaxed text-gray-500">
+                <svg class="mt-1 h-4 w-4 flex-shrink-0 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                {row.traditional}
+              </span>
+            </div>
+
+            <div class={`relative flex flex-col gap-1 bg-primary px-6 py-5 border-l border-secondary/30 ${i !== rows.length - 1 ? 'border-b border-white/10' : ''}`}>
+              <span class="text-xs font-bold uppercase tracking-[0.18em] text-secondary md:hidden">
+                {row.axis} · Nuestra Infraestructura
+              </span>
+              <span class="flex items-start gap-3 text-base leading-relaxed text-white">
+                <svg class="mt-1 h-4 w-4 flex-shrink-0 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                {row.ours}
+              </span>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

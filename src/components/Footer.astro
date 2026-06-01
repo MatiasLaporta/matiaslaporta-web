@@ -1,0 +1,46 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-dark py-12 text-background">
+  <div class="container-tight">
+    <div class="reveal grid gap-8 sm:grid-cols-[1.2fr_1fr_1fr] sm:items-start">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-secondary font-display text-lg font-bold text-primary">M</span>
+          <div class="leading-tight">
+            <p class="font-display text-sm font-semibold">Matías Laporta</p>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-secondary">Growth Architect</p>
+          </div>
+        </div>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-background/65">
+          Arquitecto de adquisición y crecimiento. Diseño la infraestructura comercial completa para empresas que necesitan escalar de forma predecible.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Navegación</p>
+        <ul class="mt-4 space-y-2 text-sm text-background/70">
+          <li><a href="#problema" class="hover:text-secondary transition-colors">Problema</a></li>
+          <li><a href="#sobre-mi" class="hover:text-secondary transition-colors">Sobre mí</a></li>
+          <li><a href="#comparacion" class="hover:text-secondary transition-colors">Comparación</a></li>
+          <li><a href="#servicios" class="hover:text-secondary transition-colors">Servicios</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Contacto</p>
+        <ul class="mt-4 space-y-2 text-sm text-background/70">
+          <li><a href="mailto:hola@matiaslaporta.com" class="hover:text-secondary transition-colors">hola@matiaslaporta.com</a></li>
+          <li><a href="https://www.linkedin.com/in/matiaslaporta" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">LinkedIn</a></li>
+          <li class="text-background/50">Santiago, Chile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-xs text-background/50 md:flex-row md:justify-between md:text-left">
+      <p>&copy; {year} Matías Laporta. Todos los derechos reservados.</p>
+      <p>Hecho con Astro + Tailwind · Desplegado en GitHub Pages</p>
+    </div>
+  </div>
+</footer>

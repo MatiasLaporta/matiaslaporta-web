@@ -1,0 +1,83 @@
+---
+const services = [
+  {
+    icon: 'search',
+    title: 'Auditoría y Estrategia de Crecimiento',
+    body: 'Diagnóstico profundo multicanal para encontrar tus fugas de capital: adquisición, conversión, retención y stack tecnológico.',
+    deliverable: 'Roadmap priorizado de crecimiento con quick wins y palancas estructurales.',
+  },
+  {
+    icon: 'funnel',
+    title: 'Diseño de Ecosistemas y Embudos',
+    body: 'Construcción de infraestructura digital: campañas, páginas, IA, automatizaciones e integraciones CRM que operan 24/7.',
+    deliverable: 'Ecosistema integrado, embudos documentados y automatizaciones funcionando.',
+  },
+  {
+    icon: 'map',
+    title: 'Dirección Comercial Externa',
+    body: 'Playbooks, estructuración del equipo de ventas y KPIs accionables. Lidero el área comercial como fraccional senior.',
+    deliverable: 'Equipo entrenado, KPIs en operación y forecast confiable mes a mes.',
+  },
+];
+---
+
+<section id="servicios" class="relative overflow-hidden bg-primary py-24 lg:py-32">
+  <div class="pointer-events-none absolute -bottom-32 -left-20 h-[420px] w-[420px] rounded-full bg-secondary/15 blur-3xl"></div>
+  <div class="pointer-events-none absolute -top-32 -right-20 h-[420px] w-[420px] rounded-full bg-tertiary/10 blur-3xl"></div>
+
+  <div class="container-tight relative">
+    <div class="reveal text-center">
+      <span class="px-4 py-1 rounded-full bg-dark text-secondary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Tu Maquinaria</span>
+      <h2 class="font-display text-3xl font-bold leading-tight text-background sm:text-4xl lg:text-5xl">
+        Soluciones de <span class="text-secondary">Infraestructura Comercial</span>
+      </h2>
+      <p class="mx-auto mt-4 mb-12 max-w-2xl text-lg leading-relaxed text-background/70">
+        Sistemas diseñados para que tu equipo ejecute con precisión, elimine la fricción y cierre ventas.
+      </p>
+    </div>
+
+    <div class="reveal grid grid-cols-1 gap-8 md:grid-cols-3">
+      {services.map((service) => (
+        <article class="hover-glow flex flex-col rounded-xl border border-secondary/15 bg-dark p-8 shadow-lg">
+          <div class="w-12 h-12 rounded-lg bg-secondary/10 ring-1 ring-secondary/30 flex items-center justify-center text-secondary mb-6">
+            {service.icon === 'search' && (
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            )}
+            {service.icon === 'funnel' && (
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+              </svg>
+            )}
+            {service.icon === 'map' && (
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
+                <line x1="8" y1="2" x2="8" y2="18" />
+                <line x1="16" y1="6" x2="16" y2="22" />
+              </svg>
+            )}
+          </div>
+
+          <h3 class="mb-4 font-display text-xl font-bold leading-snug text-background">
+            {service.title}
+          </h3>
+
+          <p class="mb-6 text-base leading-relaxed text-background/75">
+            {service.body}
+          </p>
+
+          <div class="mt-auto border-t border-white/10 pt-5">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-secondary">
+              Entregable
+            </p>
+            <p class="mt-2 text-base font-bold leading-snug text-background">
+              {service.deliverable}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

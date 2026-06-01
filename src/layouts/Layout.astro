@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Matías Laporta | Arquitecto de Adquisición y Crecimiento',
+  description = 'Construimos el motor de adquisición y ventas que tu empresa necesita para escalar. Automatización, IA y estrategia comercial integradas.',
+  canonical = 'https://matiaslaporta.com/',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#1a2b56" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-primary antialiased min-h-screen">
+    <slot />
+
+    <script is:inline>
+      // Reveal on scroll
+      (function () {
+        if (typeof window === 'undefined') return;
+
+        var reveal = function () {
+          var targets = document.querySelectorAll('.reveal');
+          if (!targets.length) return;
+
+          if (!('IntersectionObserver' in window)) {
+            targets.forEach(function (el) { el.classList.add('visible'); });
+            return;
+          }
+
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+          targets.forEach(function (el) { io.observe(el); });
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', reveal);
+        } else {
+          reveal();
+        }
+      })();
+    </script>
+  </body>
+</html>

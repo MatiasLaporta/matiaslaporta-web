@@ -1,0 +1,51 @@
+---
+const pains = [
+  {
+    icon: 'M12 2 2 7v10l10 5 10-5V7l-10-5Zm0 5v10M2 7l10 5 10-5',
+    title: 'Marketing de Esperanza',
+    body: 'Depender del boca a boca o campañas aisladas sin un embudo predecible.',
+  },
+  {
+    icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 2v6m-3-3h6',
+    title: 'Talento Desperdiciado',
+    body: 'Tu equipo comercial rastreando contactos fríos en vez de cerrar ventas.',
+  },
+  {
+    icon: 'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71',
+    title: 'Fricción Tecnológica',
+    body: 'Herramientas desconectadas y procesos manuales que drenan tu rentabilidad diaria.',
+  },
+];
+---
+
+<section id="problema" class="bg-background py-24 lg:py-32">
+  <div class="container-tight">
+    <div class="reveal text-center">
+      <span class="px-4 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-bold inline-block mb-4 uppercase tracking-wider">El problema real</span>
+      <h2 class="font-display text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
+        ¿Por qué tu crecimiento sigue <span class="text-primary underline decoration-secondary decoration-[3px] underline-offset-4">estancado</span>?
+      </h2>
+      <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+        Las empresas no escalan por falta de talento; escalan por depender de tácticas obsoletas que queman a sus equipos de ventas.
+      </p>
+    </div>
+
+    <div class="reveal mt-14 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
+      {pains.map((pain) => (
+        <article class="hover-glow rounded-xl border-t-4 border-secondary bg-background p-8 shadow-lg">
+          <span class="mb-6 inline-grid h-12 w-12 place-items-center rounded-lg bg-secondary/10 text-secondary">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d={pain.icon} />
+            </svg>
+          </span>
+          <h3 class="font-display text-xl font-semibold leading-snug text-primary sm:text-2xl">
+            {pain.title}
+          </h3>
+          <p class="mt-4 text-base leading-relaxed text-gray-600">
+            {pain.body}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+const credentials = [
+  { value: '10 años', label: 'Consultoría estratégica' },
+  { value: '6 años', label: 'Dirección comercial' },
+  { value: 'IA', label: 'Automatización & ecosistemas' },
+];
+---
+
+<section id="sobre-mi" class="bg-background py-24 lg:py-32">
+  <div class="container-tight md:grid md:grid-cols-2 md:items-center md:gap-12">
+    <div class="reveal relative">
+      <div class="absolute -inset-4 rounded-2xl bg-gradient-to-br from-secondary/20 via-secondary/5 to-tertiary/20 blur-2xl"></div>
+      <div class="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl shadow-xl flex items-center justify-center bg-primary border border-primary/20 p-8 overflow-hidden">
+        <div
+          class="pointer-events-none absolute inset-0 opacity-[0.14]"
+          style="background-image: linear-gradient(rgba(243,205,116,1) 1px, transparent 1px), linear-gradient(90deg, rgba(243,205,116,1) 1px, transparent 1px); background-size: 32px 32px;"
+          aria-hidden="true"
+        ></div>
+        <span class="relative text-center text-lg font-medium text-white">
+          Imagen de Perfil / Logo
+        </span>
+      </div>
+    </div>
+
+    <div class="reveal mt-10 md:mt-0">
+      <span class="px-4 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Autoridad</span>
+      <h2 class="font-display text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
+        Experiencia corporativa. <span class="text-secondary [text-shadow:_0_0_20px_rgba(243,205,116,0.3)]">Ejecución ágil.</span>
+      </h2>
+
+      <p class="mt-8 mb-6 text-lg leading-relaxed text-gray-600">
+        Soy Matías Laporta. Combino una década de trayectoria en consultoría estratégica, 6 años en dirección comercial y un dominio profundo de la Inteligencia Artificial y la automatización. Entiendo el rigor de los negocios B2B y B2C, pero ejecuto con la velocidad de la tecnología moderna.
+      </p>
+
+      <p class="text-lg font-semibold leading-relaxed text-primary">
+        No vendo plantillas; instalo ecosistemas predecibles en tu empresa.
+      </p>
+
+      <dl class="mt-10 grid grid-cols-3 gap-4 border-t border-primary/10 pt-6">
+        {credentials.map((c) => (
+          <div>
+            <dt class="font-display text-2xl font-bold text-primary sm:text-3xl">{c.value}</dt>
+            <dd class="mt-1 text-xs leading-snug text-gray-500 sm:text-sm">{c.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

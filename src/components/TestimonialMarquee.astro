@@ -1,0 +1,99 @@
+---
+const testimonials = [
+  {
+    quote:
+      'Gracias al análisis desarrollado pudimos evaluar la factibilidad real del proyecto y las diversas vías de financiamiento, dando un punto de vista más certero del rumbo que debíamos tomar.',
+    name: 'German Berger-Hertz',
+    role: 'Jefe de área No Ficción',
+    company: 'TVN',
+  },
+  {
+    quote:
+      'Excelente, muy organizado, y sobre todo empático, se adaptó a mis competencias y necesidades... Muy recomendado Gracias por toda tu atención y asesoría.',
+    name: 'Samira Saker',
+    role: 'Coach Ontológico & Agile Leadership',
+    company: 'Coach Confidencial',
+  },
+  {
+    quote:
+      'Matías destacó desde un comienzo por su responsabilidad, compromiso, disciplina, liderazgo y trabajo en equipo. A lo anterior se suma un excelente desempeño y una gran capacidad de aprender y desafiarse...',
+    name: 'Matías González Argomedo',
+    role: 'Director StartUp Lab',
+    company: 'Universidad Andrés Bello',
+  },
+  {
+    quote:
+      'Excelente consultoría: diseñó un plan integral de marketing y redes sociales claro, medible y aterrizado a objetivos reales... Servicio profesional, ordenado y con foco en resultados.',
+    name: 'Andrea Rodero',
+    role: 'Property Broker',
+    company: 'Somos Propiedades',
+  },
+  {
+    quote:
+      'Analizó la factibilidad de 2 proyectos, midiendo posible impacto real, proyectando resultados y aconsejando puntos críticos de acción... a pesar de ser consultor externo se sintió como parte del equipo desde el día 1.',
+    name: 'Christian Hernández Lister',
+    role: 'Gerente de Transformación y Eficiencia',
+    company: 'Walmart Chile',
+  },
+  {
+    quote:
+      'Maravilloso, se comunicó al instante y después de una reunión clara y cercana me comentó el plan para avanzar. Los precios están dentro de mercado y entrega mucho valor.',
+    name: 'José Miguel Gómez Santos',
+    role: 'CFO y CTO',
+    company: 'Ferretería Santos',
+  },
+  {
+    quote:
+      'Con un punto de vista innovador, con data actualizada y centrado en aplicaciones prácticas, nos ayudó a poder evaluar con mayor certeza diversos proyectos y su posible impacto en el sector agrario.',
+    name: 'Andrés Silva',
+    role: 'Coordinador Principal de Proyecto',
+    company: 'FIA',
+  },
+  {
+    quote:
+      'Realizó una investigación de mercado, un modelo de negocio y un plan de marketing para un proyecto emergente... un servicio realmente muy personalizado a nuestras necesidades. ¡Se merece esas 5 estrellas!',
+    name: 'Macarena Viñuela',
+    role: 'Emprendedora',
+    company: 'Vaco',
+  },
+];
+
+const track = [...testimonials, ...testimonials];
+---
+
+<section class="overflow-hidden bg-background py-24 lg:py-32">
+  <div class="reveal container-tight mb-12 text-center">
+    <span class="px-4 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Resultados Tangibles</span>
+    <h2 class="font-display text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
+      Lo que dicen quienes ya trabajaron conmigo
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
+      +8 años acompañando a equipos comerciales de SaaS, industria, retail y servicios profesionales.
+    </p>
+  </div>
+
+  <div class="relative">
+    <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent"></div>
+
+    <div
+      class="flex w-max"
+      style="animation: marqueeLarge 120s linear infinite;"
+    >
+      {track.map((t) => (
+        <article class="marquee-card mx-6 flex w-[450px] shrink-0 flex-col whitespace-normal rounded-xl border border-primary/5 bg-background p-8 shadow-xl">
+          <div class="text-tertiary text-lg mb-4" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="mb-6 italic leading-relaxed text-gray-700">
+            “{t.quote}”
+          </p>
+          <div class="mt-auto pt-6 border-t border-gray-100">
+            <p class="font-display font-bold text-primary">{t.name}</p>
+            <p class="text-sm text-gray-500">
+              {t.role} · {t.company}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
