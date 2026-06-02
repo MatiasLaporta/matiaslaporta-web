@@ -93,6 +93,14 @@
     transform: translateX(-50%);
   }
 }
+.marquee-track {
+  animation: marqueeLarge 90s linear infinite;
+}
+@media (max-width: 767px) {
+  .marquee-track {
+    animation-duration: 120s;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {

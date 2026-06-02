@@ -84,10 +84,7 @@ const track = [...testimonials, ...testimonials];
     <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent"></div>
     <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent"></div>
 
-    <div
-      class="flex w-max"
-      style="animation: marqueeLarge 90s linear infinite;"
-    >
+    <div class="marquee-track flex w-max">
       {track.map((t) => (
         <article class="marquee-card mx-6 flex w-[450px] shrink-0 flex-col whitespace-normal rounded-xl border border-primary/5 bg-background p-8 shadow-xl">
           <div class="text-secondary text-lg mb-4" aria-label="5 de 5 estrellas">★★★★★</div>

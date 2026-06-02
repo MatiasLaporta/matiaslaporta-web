@@ -2,45 +2,61 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-dark py-12 text-background">
+<footer class="bg-background py-12 text-dark">
   <div class="container-tight">
-    <div class="reveal grid gap-8 sm:grid-cols-[1.2fr_1fr_1fr] sm:items-start">
+    <div class="reveal grid gap-8 sm:grid-cols-[1.5fr_1fr] sm:items-start">
       <div>
-        <div class="flex items-center gap-2.5">
-          <span class="grid h-9 w-9 place-items-center rounded-xl bg-secondary font-display text-lg font-bold text-primary">M</span>
-          <div class="leading-tight">
-            <p class="font-display text-sm font-semibold">Matías Laporta</p>
-            <p class="text-[11px] uppercase tracking-[0.18em] text-secondary">Growth Architect</p>
-          </div>
-        </div>
-        <p class="mt-4 max-w-sm text-sm leading-relaxed text-background/65">
+        <a href="#top" class="inline-block">
+          <img src="/Logo.png" alt="Matías Laporta" class="h-12 w-auto" />
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-dark/70">
           Arquitecto de adquisición y crecimiento. Diseño la infraestructura comercial completa para empresas que necesitan escalar de forma predecible.
         </p>
       </div>
 
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Navegación</p>
-        <ul class="mt-4 space-y-2 text-sm text-background/70">
-          <li><a href="#problema" class="hover:text-secondary transition-colors">Problema</a></li>
-          <li><a href="#sobre-mi" class="hover:text-secondary transition-colors">Sobre mí</a></li>
-          <li><a href="#comparacion" class="hover:text-secondary transition-colors">Comparación</a></li>
-          <li><a href="#servicios" class="hover:text-secondary transition-colors">Servicios</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Contacto</p>
-        <ul class="mt-4 space-y-2 text-sm text-background/70">
-          <li><a href="mailto:hola@matiaslaporta.com" class="hover:text-secondary transition-colors">hola@matiaslaporta.com</a></li>
-          <li><a href="https://www.linkedin.com/in/matiaslaporta" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">LinkedIn</a></li>
-          <li class="text-background/50">Santiago, Chile</li>
+      <div class="sm:justify-self-end">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dark">Contacto</p>
+        <ul class="mt-4 space-y-2 text-sm text-dark/80">
+          <li>
+            <a href="https://wa.me/56983306813" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-dark">
+              <svg class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.44.79 3.07 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.78 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-.95.24-3.2-.67-2.71-1.09-4.43-3.86-4.56-4.04-.13-.18-1.09-1.45-1.09-2.76 0-1.31.69-1.96.93-2.23.24-.27.53-.34.71-.34.18 0 .35.01.51.01.16.01.39-.06.6.46.24.58.81 2 .88 2.14.07.14.12.31.02.49-.09.18-.14.29-.27.45-.13.16-.28.36-.4.48-.13.13-.27.28-.12.55.15.27.67 1.11 1.45 1.8 1 .89 1.84 1.17 2.11 1.31.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31Z"/>
+              </svg>
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/matias-laporta/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-dark">
+              <svg class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+              </svg>
+              LinkedIn Personal
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/matias-laporta/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-dark">
+              <svg class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+              </svg>
+              LinkedIn Empresa
+            </a>
+          </li>
+          <li>
+            <a href="mailto:asesor@matiaslaporta.com" class="inline-flex items-center gap-2 transition-colors hover:text-dark">
+              <svg class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 5L2 7" />
+              </svg>
+              asesor@matiaslaporta.com
+            </a>
+          </li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-xs text-background/50 md:flex-row md:justify-between md:text-left">
+    <div class="mt-10 flex flex-col items-center gap-3 border-t border-dark/10 pt-6 text-center text-xs text-dark/50 md:flex-row md:justify-between md:text-left">
       <p>&copy; {year} Matías Laporta. Todos los derechos reservados.</p>
-      <p>Hecho con Astro + Tailwind · Desplegado en GitHub Pages</p>
+      <p>Santiago, Chile</p>
     </div>
   </div>
 </footer>
