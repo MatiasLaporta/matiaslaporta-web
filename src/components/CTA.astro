@@ -1,20 +1,23 @@
 ---
 ---
 
-<section id="contacto" class="relative overflow-hidden bg-primary py-24 text-background lg:py-32">
+<section id="contacto" class="relative overflow-hidden bg-dark py-24 text-background lg:py-32">
+  <!-- Vanilla JS interactive node network (igual que el Hero) -->
+  <canvas id="cta-canvas" class="absolute inset-0 w-full h-full z-0 opacity-60"></canvas>
+
   <div class="pointer-events-none absolute -top-40 right-[-15%] h-[520px] w-[520px] rounded-full bg-secondary/25 blur-3xl"></div>
   <div class="pointer-events-none absolute -bottom-40 left-[-10%] h-[520px] w-[520px] rounded-full bg-tertiary/15 blur-3xl"></div>
 
-  <div class="container-tight relative">
+  <div class="container-tight relative z-10">
     <div class="reveal mx-auto max-w-3xl text-center">
       <span class="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
         <span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
-        Cupos limitados este trimestre
+        Cupos mensuales limitados
       </span>
 
       <h2 class="mt-6 font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-        Auditemos tu ecosistema comercial.<br/>
-        <span class="gradient-text">Si no hay fit, te digo exactamente dónde mirar.</span>
+        Revisemos en una sesión tu ecosistema comercial.<br/>
+        <span class="text-secondary">Si no hay fit, te digo exactamente dónde mirar.</span>
       </h2>
 
       <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-background/75 sm:text-lg">
@@ -26,15 +29,15 @@
           href="https://calendar.app.google/2yt17PjZkAg5CcDE9"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover-glow inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-8 py-4 text-sm font-bold text-primary shadow-glow"
+          class="btn-cyan !px-8 !py-4 !font-bold focus:ring-offset-dark"
         >
-          Agendar Auditoría
+          Agendar mi Sesión
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M5 12h14M13 5l7 7-7 7" />
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/matiaslaporta"
+          href="https://www.linkedin.com/in/matias-laporta/"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center gap-2 rounded-full border border-accent/50 bg-white/5 px-7 py-4 text-sm font-semibold text-background backdrop-blur transition hover:border-secondary hover:bg-secondary/10 hover:text-secondary"
@@ -47,4 +50,102 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('cta-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouse = { x: null, y: null };
+
+      function resize() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+
+      canvas.parentElement.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.parentElement.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 1.5;
+          this.vy = (Math.random() - 0.5) * 1.5;
+          this.radius = Math.random() * 2 + 1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#00E5FF';
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < 70; i++) {
+          particles.push(new Particle());
+        }
+        animate();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        for (let i = 0; i < particles.length; i++) {
+          if (mouse.x != null) {
+            let dxMouse = particles[i].x - mouse.x;
+            let dyMouse = particles[i].y - mouse.y;
+            let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+            if (distMouse < 180) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 229, 255, ${0.5 * (1 - distMouse/180)})`;
+              ctx.lineWidth = 1.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.stroke();
+            }
+          }
+          for (let j = i; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 229, 255, ${0.2 * (1 - dist/120)})`;
+              ctx.lineWidth = 1;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init();
+    });
+  </script>
 </section>

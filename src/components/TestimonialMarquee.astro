@@ -2,59 +2,67 @@
 const testimonials = [
   {
     quote:
-      'Gracias al análisis desarrollado pudimos evaluar la factibilidad real del proyecto y las diversas vías de financiamiento, dando un punto de vista más certero del rumbo que debíamos tomar.',
+      'Gracias al análisis desarrollado pudimos evaluar la <strong>factibilidad real del proyecto y las diversas vías de financiamiento</strong>, dando un punto de vista más certero del rumbo que debíamos tomar.',
     name: 'German Berger-Hertz',
     role: 'Jefe de área No Ficción',
     company: 'TVN',
+    avatar: '/logos/tvn.png',
   },
   {
     quote:
-      'Excelente, muy organizado, y sobre todo empático, se adaptó a mis competencias y necesidades... Muy recomendado Gracias por toda tu atención y asesoría.',
+      'Excelente, muy organizado, y sobre todo empático, <strong>se adaptó a mis competencias y necesidades</strong>... Muy recomendado Gracias por toda tu atención y asesoría.',
     name: 'Samira Saker',
-    role: 'Coach Ontológico & Agile Leadership',
+    role: 'Coach Ontológico',
     company: 'Coach Confidencial',
+    avatar: '/logos/coach-confidencial.png',
   },
   {
     quote:
-      'Matías destacó desde un comienzo por su responsabilidad, compromiso, disciplina, liderazgo y trabajo en equipo. A lo anterior se suma un excelente desempeño y una gran capacidad de aprender y desafiarse...',
+      'Matías destacó desde un comienzo por su responsabilidad, compromiso, disciplina, liderazgo y trabajo en equipo. A lo anterior se suma un excelente desempeño y una <strong>gran capacidad de aprender y desafiarse</strong>',
     name: 'Matías González Argomedo',
     role: 'Director StartUp Lab',
     company: 'Universidad Andrés Bello',
+    avatar: '/logos/unab.png',
   },
   {
     quote:
-      'Excelente consultoría: diseñó un plan integral de marketing y redes sociales claro, medible y aterrizado a objetivos reales... Servicio profesional, ordenado y con foco en resultados.',
+      'Excelente consultoría: diseñó un plan integral de marketing y redes sociales claro, medible y aterrizado a objetivos reales. <strong>Mejoramos alcance, interacción y generación de leads en pocas semanas.</strong> Servicio profesional, ordenado y con foco en resultados.',
     name: 'Andrea Rodero',
     role: 'Property Broker',
     company: 'Somos Propiedades',
+    avatar: '/logos/somos-propiedades.png',
   },
   {
     quote:
-      'Analizó la factibilidad de 2 proyectos, midiendo posible impacto real, proyectando resultados y aconsejando puntos críticos de acción... a pesar de ser consultor externo se sintió como parte del equipo desde el día 1.',
+      'Analizó la factibilidad de 2 proyectos, <strong>midiendo posible impacto real, proyectando resultados y aconsejando puntos críticos de acción</strong>... a pesar de ser consultor externo se sintió como parte del equipo desde el día 1.',
     name: 'Christian Hernández Lister',
     role: 'Gerente de Transformación y Eficiencia',
     company: 'Walmart Chile',
+    avatar: '/logos/walmart.png',
   },
   {
     quote:
-      'Maravilloso, se comunicó al instante y después de una reunión clara y cercana me comentó el plan para avanzar. Los precios están dentro de mercado y entrega mucho valor.',
-    name: 'José Miguel Gómez Santos',
+      'Maravilloso, se comunicó al instante y después de una reunión clara y cercana me comentó el plan para avanzar. Los precios están dentro de mercado y <strong>entrega mucho valor.</strong>',
+    name: 'José Miguel Gómez',
     role: 'CFO y CTO',
     company: 'Ferretería Santos',
+    avatar: '/logos/ferreteria-santos.png',
   },
   {
     quote:
-      'Con un punto de vista innovador, con data actualizada y centrado en aplicaciones prácticas, nos ayudó a poder evaluar con mayor certeza diversos proyectos y su posible impacto en el sector agrario.',
+      'Con un punto de vista innovador, con data actualizada y centrado en aplicaciones prácticas, <strong>nos ayudó a poder evaluar con mayor certeza diversos proyectos y su posible impacto</strong> en el sector agrario.',
     name: 'Andrés Silva',
     role: 'Coordinador Principal de Proyecto',
-    company: 'FIA',
+    company: 'Fundación para la Innovación Agraria (FIA)',
+    avatar: '/logos/fia.png',
   },
   {
     quote:
-      'Realizó una investigación de mercado, un modelo de negocio y un plan de marketing para un proyecto emergente... un servicio realmente muy personalizado a nuestras necesidades. ¡Se merece esas 5 estrellas!',
+      'Realizó una investigación de mercado, un modelo de negocio y un plan de marketing para un proyecto emergente... un <strong>servicio realmente muy personalizado a nuestras necesidades e incluso nos dio consejos para obtener financiamiento.</strong>',
     name: 'Macarena Viñuela',
     role: 'Emprendedora',
     company: 'Vaco',
+    avatar: '/logos/vaco.png',
   },
 ];
 
@@ -68,7 +76,7 @@ const track = [...testimonials, ...testimonials];
       Lo que dicen quienes ya trabajaron conmigo
     </h2>
     <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
-      +8 años acompañando a equipos comerciales de SaaS, industria, retail y servicios profesionales.
+      +10 años acompañando a equipos comerciales en diversas industrias como SaaS, retail, emprendimientos, servicios profesionales y más.
     </p>
   </div>
 
@@ -78,19 +86,25 @@ const track = [...testimonials, ...testimonials];
 
     <div
       class="flex w-max"
-      style="animation: marqueeLarge 120s linear infinite;"
+      style="animation: marqueeLarge 90s linear infinite;"
     >
       {track.map((t) => (
         <article class="marquee-card mx-6 flex w-[450px] shrink-0 flex-col whitespace-normal rounded-xl border border-primary/5 bg-background p-8 shadow-xl">
-          <div class="text-tertiary text-lg mb-4" aria-label="5 de 5 estrellas">★★★★★</div>
+          <div class="text-secondary text-lg mb-4" aria-label="5 de 5 estrellas">★★★★★</div>
           <p class="mb-6 italic leading-relaxed text-gray-700">
-            “{t.quote}”
+            “<Fragment set:html={t.quote} />”
           </p>
-          <div class="mt-auto pt-6 border-t border-gray-100">
-            <p class="font-display font-bold text-primary">{t.name}</p>
-            <p class="text-sm text-gray-500">
-              {t.role} · {t.company}
-            </p>
+          <div class="mt-auto flex items-center gap-4 border-t border-gray-100 pt-6">
+            <img
+              src={t.avatar}
+              alt={`Logo ${t.company}`}
+              class="h-14 w-14 flex-shrink-0 rounded-full border border-gray-200 bg-gray-100 object-cover"
+            />
+            <div>
+              <p class="font-display font-bold text-primary">{t.name}</p>
+              <p class="mt-0.5 text-sm font-medium text-gray-600">{t.role}</p>
+              <p class="text-sm text-gray-500">{t.company}</p>
+            </div>
           </div>
         </article>
       ))}

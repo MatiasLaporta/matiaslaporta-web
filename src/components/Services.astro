@@ -8,7 +8,7 @@ const services = [
   },
   {
     icon: 'funnel',
-    title: 'Diseño de Ecosistemas y Embudos',
+    title: 'Diseño de Embudos y Ecosistemas',
     body: 'Construcción de infraestructura digital: campañas, páginas, IA, automatizaciones e integraciones CRM que operan 24/7.',
     deliverable: 'Ecosistema integrado, embudos documentados y automatizaciones funcionando.',
   },
@@ -16,18 +16,21 @@ const services = [
     icon: 'map',
     title: 'Dirección Comercial Externa',
     body: 'Playbooks, estructuración del equipo de ventas y KPIs accionables. Lidero el área comercial como fraccional senior.',
-    deliverable: 'Equipo entrenado, KPIs en operación y forecast confiable mes a mes.',
+    deliverable: 'Equipo entrenado, KPIs en operación y forecast predecible y confiable todos los meses.',
   },
 ];
 ---
 
-<section id="servicios" class="relative overflow-hidden bg-primary py-24 lg:py-32">
+<section id="servicios" class="relative overflow-hidden bg-dark py-24 lg:py-32">
+  <!-- Vanilla JS interactive node network (igual que el Hero) -->
+  <canvas id="services-canvas" class="absolute inset-0 w-full h-full z-0 opacity-60"></canvas>
+
   <div class="pointer-events-none absolute -bottom-32 -left-20 h-[420px] w-[420px] rounded-full bg-secondary/15 blur-3xl"></div>
   <div class="pointer-events-none absolute -top-32 -right-20 h-[420px] w-[420px] rounded-full bg-tertiary/10 blur-3xl"></div>
 
-  <div class="container-tight relative">
+  <div class="container-tight relative z-10">
     <div class="reveal text-center">
-      <span class="px-4 py-1 rounded-full bg-dark text-secondary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Tu Maquinaria</span>
+      <span class="px-4 py-1 rounded-full bg-primary text-secondary text-sm font-bold inline-block mb-4 uppercase tracking-wider">Tu Maquinaria</span>
       <h2 class="font-display text-3xl font-bold leading-tight text-background sm:text-4xl lg:text-5xl">
         Soluciones de <span class="text-secondary">Infraestructura Comercial</span>
       </h2>
@@ -38,7 +41,7 @@ const services = [
 
     <div class="reveal grid grid-cols-1 gap-8 md:grid-cols-3">
       {services.map((service) => (
-        <article class="hover-glow flex flex-col rounded-xl border border-secondary/15 bg-dark p-8 shadow-lg">
+        <article class="hover-glow flex flex-col rounded-xl border border-secondary/15 bg-primary p-8 shadow-lg">
           <div class="w-12 h-12 rounded-lg bg-secondary/10 ring-1 ring-secondary/30 flex items-center justify-center text-secondary mb-6">
             {service.icon === 'search' && (
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -76,8 +79,115 @@ const services = [
               {service.deliverable}
             </p>
           </div>
+
+          <a
+            href="https://calendar.app.google/2yt17PjZkAg5CcDE9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 block w-full text-center px-4 py-2 border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-colors text-sm font-semibold tracking-wide"
+          >
+            Explorar esta opción
+          </a>
         </article>
       ))}
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('services-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouse = { x: null, y: null };
+
+      function resize() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+
+      canvas.parentElement.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.parentElement.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 1.5;
+          this.vy = (Math.random() - 0.5) * 1.5;
+          this.radius = Math.random() * 2 + 1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#00E5FF';
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < 70; i++) {
+          particles.push(new Particle());
+        }
+        animate();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        for (let i = 0; i < particles.length; i++) {
+          if (mouse.x != null) {
+            let dxMouse = particles[i].x - mouse.x;
+            let dyMouse = particles[i].y - mouse.y;
+            let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+            if (distMouse < 180) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 229, 255, ${0.5 * (1 - distMouse/180)})`;
+              ctx.lineWidth = 1.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.stroke();
+            }
+          }
+          for (let j = i; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 229, 255, ${0.2 * (1 - dist/120)})`;
+              ctx.lineWidth = 1;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init();
+    });
+  </script>
 </section>
