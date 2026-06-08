@@ -19,42 +19,108 @@ const compact = [
     // sobre
     icon: '<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" />',
   },
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/56983306813',
-    fill: true,
-    // whatsapp (relleno)
-    icon: '<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.44.79 3.07 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.78 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-.95.24-3.2-.67-2.71-1.09-4.43-3.86-4.56-4.04-.13-.18-1.09-1.45-1.09-2.76 0-1.31.69-1.96.93-2.23.24-.27.53-.34.71-.34.18 0 .35.01.51.01.16.01.39-.06.6.46.24.58.81 2 .88 2.14.07.14.12.31.02.49-.09.18-.14.29-.27.45-.13.16-.28.36-.4.48-.13.13-.27.28-.12.55.15.27.67 1.11 1.45 1.8 1 .89 1.84 1.17 2.11 1.31.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31Z"/>',
-  },
 ];
 
 // Botones grandes verticales (texto + símbolo, borde amarillo)
 const links = [
   {
-    label: 'Agendar Reunión',
-    href: 'https://calendar.app.google/wK6AkvtZDWwxCNMy5',
-    // calendario
-    icon: '<rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />',
+    label: 'Escríbeme por WhatsApp',
+    href: `https://wa.me/56983306813?text=${encodeURIComponent('Hola Matías, quiero saber más, quedamos en contacto.')}`,
+    fill: true,
+    highlight: true,
+    track: 'whatsapp',
+    // whatsapp (relleno)
+    icon: '<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.44.79 3.07 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.78 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-.95.24-3.2-.67-2.71-1.09-4.43-3.86-4.56-4.04-.13-.18-1.09-1.45-1.09-2.76 0-1.31.69-1.96.93-2.23.24-.27.53-.34.71-.34.18 0 .35.01.51.01.16.01.39-.06.6.46.24.58.81 2 .88 2.14.07.14.12.31.02.49-.09.18-.14.29-.27.45-.13.16-.28.36-.4.48-.13.13-.27.28-.12.55.15.27.67 1.11 1.45 1.8 1 .89 1.84 1.17 2.11 1.31.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31Z"/>',
   },
   {
-    label: 'Página Web',
-    href: 'https://matiaslaporta.com/',
+    label: 'Mi LinkedIn',
+    href: 'https://www.linkedin.com/in/matias-laporta/',
+    fill: true,
+    track: 'linkedin_personal',
+    // linkedin (relleno)
+    icon: '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>',
+  },
+  {
+    label: 'LinkedIn de la Agencia',
+    href: 'https://www.linkedin.com/company/matias-laporta/',
+    fill: true,
+    track: 'linkedin_agencia',
+    // linkedin (relleno)
+    icon: '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>',
+  },
+  {
+    label: 'Ver Soluciones Comerciales',
+    href: 'https://matiaslaporta.com/?ref=nfc',
+    track: 'ver_soluciones',
     // globo / web
     icon: '<circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />',
   },
   {
-    label: 'Conecta Conmigo',
-    href: 'https://www.linkedin.com/in/matias-laporta/',
+    label: 'Agendar Reunión',
+    href: 'https://calendar.app.google/wK6AkvtZDWwxCNMy5',
+    track: 'agendar_reunion',
+    // calendario
+    icon: '<rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />',
+  },
+];
+
+// Compartir: opciones del desplegable (círculos con color de marca, como Linktree)
+const shareUrl = 'https://matiaslaporta.com/tarjeta';
+const shareTitle = 'Matías Laporta | Arquitecto de Adquisición y Crecimiento';
+// WhatsApp soporta *negrita* con asteriscos; X/Email los mostrarían literales.
+const shareMessage = `*Matías Laporta | Arquitecto de Adquisición y Crecimiento*
+
+Diseño infraestructura comercial para que tu empresa escale de forma predecible.
+
+Guarda mi contacto o revisemos tu ecosistema aquí:
+${shareUrl}`;
+const shareMessagePlain = `Matías Laporta | Arquitecto de Adquisición y Crecimiento
+
+Diseño infraestructura comercial para que tu empresa escale de forma predecible.
+
+Guarda mi contacto o revisemos tu ecosistema aquí:
+${shareUrl}`;
+const shareTargets = [
+  {
+    label: 'Copiar',
+    id: 'copy-link',
+    bg: 'bg-gray-600',
+    // enlace / cadena
+    icon: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />',
+  },
+  {
+    label: 'WhatsApp',
+    href: `https://wa.me/?text=${encodeURIComponent(shareMessage)}`,
+    bg: 'bg-[#25D366]',
     fill: true,
-    // linkedin (relleno)
+    icon: '<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.44.79 3.07 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.78 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-.95.24-3.2-.67-2.71-1.09-4.43-3.86-4.56-4.04-.13-.18-1.09-1.45-1.09-2.76 0-1.31.69-1.96.93-2.23.24-.27.53-.34.71-.34.18 0 .35.01.51.01.16.01.39-.06.6.46.24.58.81 2 .88 2.14.07.14.12.31.02.49-.09.18-.14.29-.27.45-.13.16-.28.36-.4.48-.13.13-.27.28-.12.55.15.27.67 1.11 1.45 1.8 1 .89 1.84 1.17 2.11 1.31.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31Z"/>',
+  },
+  {
+    label: 'LinkedIn',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+    bg: 'bg-[#0A66C2]',
+    fill: true,
     icon: '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>',
   },
   {
-    label: 'Contenido de Valor',
-    href: 'https://www.linkedin.com/company/matias-laporta/',
+    label: 'Facebook',
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+    bg: 'bg-[#1877F2]',
     fill: true,
-    // linkedin (relleno)
-    icon: '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>',
+    icon: '<path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>',
+  },
+  {
+    label: 'X',
+    href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareMessagePlain)}`,
+    bg: 'bg-black',
+    fill: true,
+    icon: '<path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.31l13.3 17.41Z"/>',
+  },
+  {
+    label: 'Email',
+    href: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessagePlain)}`,
+    bg: 'bg-[#2f5972]',
+    icon: '<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" />',
   },
 ];
 ---
@@ -110,6 +176,20 @@ const links = [
             />
           </a>
         ))}
+
+        <!-- Guardar contacto (vCard): solo símbolo -->
+        <button
+          id="save-contact"
+          type="button"
+          aria-label="Guardar contacto"
+          class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-background shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_rgba(243,205,116,0.6)] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-dark"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M19 8v6M22 11h-6" />
+          </svg>
+        </button>
       </nav>
 
       <!-- Botones grandes verticales -->
@@ -119,7 +199,8 @@ const links = [
             href={l.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="link-card group flex w-full items-center gap-4 rounded-2xl border border-secondary bg-transparent px-5 py-4 text-background transition-all duration-300"
+            onclick={`if(typeof gtag !== 'undefined') gtag('event', 'click_boton_tarjeta', { 'nombre_boton': '${l.track}' });`}
+            class={`link-card group flex w-full items-center gap-4 rounded-2xl border border-secondary px-5 py-4 text-background transition-all duration-300 ${l.highlight ? 'link-card-hl' : 'bg-transparent'}`}
           >
             <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center text-secondary">
               <svg
@@ -138,23 +219,6 @@ const links = [
             <span class="h-6 w-6 flex-shrink-0" aria-hidden="true"></span>
           </a>
         ))}
-
-        <!-- Guardar contacto (vCard, genera descarga al hacer click) -->
-        <button
-          id="save-contact"
-          type="button"
-          class="link-card group flex w-full items-center gap-4 rounded-2xl border border-secondary bg-transparent px-5 py-4 text-background transition-all duration-300"
-        >
-          <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center text-secondary">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M19 8v6M22 11h-6" />
-            </svg>
-          </span>
-          <span class="flex-1 text-center text-base font-semibold">Guardar Contacto</span>
-          <span class="h-6 w-6 flex-shrink-0" aria-hidden="true"></span>
-        </button>
       </div>
 
       <!-- Footer -->
@@ -163,6 +227,59 @@ const links = [
           <span class="text-background">Revisemos en una sesión tu ecosistema comercial.</span>
           <span class="mt-1 block text-secondary [text-shadow:_0_0_20px_rgba(243,205,116,0.35)] md:mt-0">Si no hay fit, te digo exactamente dónde mirar.</span>
         </p>
+
+        <!-- Compartir (botón + desplegable) -->
+        <div class="relative mt-6 inline-block text-left">
+          <button
+            id="share-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="share-panel"
+            onclick="if(typeof gtag !== 'undefined') gtag('event', 'click_boton_tarjeta', { 'nombre_boton': 'compartir' });"
+            class="link-card group inline-flex items-center justify-center gap-2 rounded-full border border-secondary bg-transparent px-6 py-2.5 text-sm font-semibold text-background transition-all duration-300"
+          >
+            <svg class="h-4 w-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+              <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98" />
+            </svg>
+            Compartir
+          </button>
+
+          <div
+            id="share-panel"
+            class="absolute bottom-full left-1/2 z-20 mb-3 hidden w-72 -translate-x-1/2 rounded-2xl border border-secondary/30 bg-primary/95 p-5 text-left shadow-[0_10px_40px_-8px_rgba(0,0,0,0.6)] backdrop-blur"
+          >
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-gray-300">Compartir tarjeta</p>
+            <div class="mt-4 grid grid-cols-3 gap-y-4">
+              {shareTargets.map((s) => (
+                <a
+                  href={s.href ?? '#'}
+                  id={s.id}
+                  target={s.href && s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href && s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={`Compartir por ${s.label}`}
+                  class="group flex flex-col items-center gap-1.5"
+                >
+                  <span class={`flex h-12 w-12 items-center justify-center rounded-full ${s.bg} text-white transition-transform duration-200 group-hover:scale-105`}>
+                    <svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill={s.fill ? 'currentColor' : 'none'}
+                      stroke={s.fill ? 'none' : 'currentColor'}
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      set:html={s.icon}
+                    />
+                  </span>
+                  <span class="text-xs text-gray-300">{s.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <p class="mt-5 text-xs text-gray-400">&copy; 2026 Matías Laporta. Todos los derechos reservados.</p>
         <p class="mt-1 text-xs text-gray-400">Santiago, Chile</p>
       </footer>
@@ -194,6 +311,45 @@ const links = [
     a.click();
     document.body.removeChild(a);
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+
+  // ---- Compartir (desplegable) ----
+  const shareToggle = document.getElementById('share-toggle');
+  const sharePanel = document.getElementById('share-panel');
+
+  function setSharePanel(open) {
+    if (!sharePanel || !shareToggle) return;
+    sharePanel.classList.toggle('hidden', !open);
+    shareToggle.setAttribute('aria-expanded', String(open));
+  }
+  shareToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSharePanel(sharePanel?.classList.contains('hidden') ?? false);
+  });
+  // Cerrar al hacer click fuera o con Escape
+  document.addEventListener('click', (e) => {
+    if (!sharePanel || sharePanel.classList.contains('hidden')) return;
+    if (!sharePanel.contains(e.target) && e.target !== shareToggle) setSharePanel(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setSharePanel(false);
+  });
+
+  // Copiar enlace al portapapeles
+  const copyLink = document.getElementById('copy-link');
+  const copyLabel = copyLink?.querySelector('span:last-child');
+  copyLink?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText('https://matiaslaporta.com/tarjeta');
+      if (copyLabel) {
+        const original = copyLabel.textContent;
+        copyLabel.textContent = '¡Copiado!';
+        setTimeout(() => { copyLabel.textContent = original; }, 1500);
+      }
+    } catch {
+      /* clipboard no disponible: no hacemos nada */
+    }
   });
 
   // ---- Red de nodos interactiva (cian) ----
@@ -299,6 +455,15 @@ const links = [
     box-shadow: 0 0 30px rgba(243, 205, 116, 0.45);
     background-color: rgba(243, 205, 116, 0.08);
     outline: none;
+  }
+  /* Botón destacado (WhatsApp): fondo amarillo translúcido permanente, que se intensifica en hover */
+  .link-card-hl {
+    background-color: rgba(243, 205, 116, 0.15);
+  }
+  .link-card-hl:hover,
+  .link-card-hl:focus-visible,
+  .link-card-hl:active {
+    background-color: rgba(243, 205, 116, 0.22);
   }
   @media (prefers-reduced-motion: reduce) {
     .link-card:hover,
