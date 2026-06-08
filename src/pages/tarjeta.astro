@@ -10,12 +10,14 @@ const compact = [
   {
     label: 'Llamar',
     href: 'tel:+56983306813',
+    track: 'telefono',
     // teléfono
     icon: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>',
   },
   {
     label: 'Correo',
     href: 'mailto:asesor@matiaslaporta.com',
+    track: 'mail',
     // sobre
     icon: '<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" />',
   },
@@ -161,6 +163,7 @@ const shareTargets = [
             target={b.href.startsWith('http') ? '_blank' : undefined}
             rel={b.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             aria-label={b.label}
+            onclick={`if(typeof gtag !== 'undefined') gtag('event', 'click_boton_tarjeta', { 'nombre_boton': '${b.track}' });`}
             class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-background shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_rgba(243,205,116,0.6)] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-dark"
           >
             <svg
@@ -182,6 +185,7 @@ const shareTargets = [
           id="save-contact"
           type="button"
           aria-label="Guardar contacto"
+          onclick="if(typeof gtag !== 'undefined') gtag('event', 'click_boton_tarjeta', { 'nombre_boton': 'guardar_contacto' });"
           class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-background shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_rgba(243,205,116,0.6)] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-dark"
         >
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
