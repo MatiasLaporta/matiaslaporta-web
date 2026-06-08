@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const phone = '+56983306813';
+const email = 'asesor@matiaslaporta.com';
+const web = 'https://matiaslaporta.com/';
+
+// Botones pequeños horizontales (símbolos en azul / color primario)
+const compact = [
+  {
+    label: 'Llamar',
+    href: 'tel:+56983306813',
+    // teléfono
+    icon: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>',
+  },
+  {
+    label: 'Correo',
+    href: 'mailto:asesor@matiaslaporta.com',
+    // sobre
+    icon: '<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" />',
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://wa.me/56983306813',
+    fill: true,
+    // whatsapp (relleno)
+    icon: '<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.44.79 3.07 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.78 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-.95.24-3.2-.67-2.71-1.09-4.43-3.86-4.56-4.04-.13-.18-1.09-1.45-1.09-2.76 0-1.31.69-1.96.93-2.23.24-.27.53-.34.71-.34.18 0 .35.01.51.01.16.01.39-.06.6.46.24.58.81 2 .88 2.14.07.14.12.31.02.49-.09.18-.14.29-.27.45-.13.16-.28.36-.4.48-.13.13-.27.28-.12.55.15.27.67 1.11 1.45 1.8 1 .89 1.84 1.17 2.11 1.31.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31Z"/>',
+  },
+];
+
+// Botones grandes verticales (texto + símbolo, borde amarillo)
+const links = [
+  {
+    label: 'Agendar Reunión',
+    href: 'https://calendar.app.google/wK6AkvtZDWwxCNMy5',
+    // calendario
+    icon: '<rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />',
+  },
+  {
+    label: 'Página Web',
+    href: 'https://matiaslaporta.com/',
+    // globo / web
+    icon: '<circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />',
+  },
+  {
+    label: 'Conecta Conmigo',
+    href: 'https://www.linkedin.com/in/matias-laporta/',
+    fill: true,
+    // linkedin (relleno)
+    icon: '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>',
+  },
+  {
+    label: 'Contenido de Valor',
+    href: 'https://www.linkedin.com/company/matias-laporta/',
+    fill: true,
+    // linkedin (relleno)
+    icon: '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>',
+  },
+];
+---
+
+<Layout
+  title="Matías Laporta | Asesoría Consultiva"
+  description="Arquitecto de adquisición y crecimiento. Diseño la infraestructura comercial completa para empresas que necesitan escalar de forma predecible."
+  canonical="https://tarjeta.matiaslaporta.com/"
+>
+  <main class="relative min-h-screen overflow-hidden bg-dark">
+    <!-- Red de nodos interactiva (cian) -->
+    <canvas id="tarjeta-canvas" class="absolute inset-0 z-0 h-full w-full opacity-60"></canvas>
+
+    <!-- Glows suaves de marca -->
+    <div class="pointer-events-none absolute -top-40 -right-32 z-0 h-[520px] w-[520px] rounded-full bg-secondary/15 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-40 -left-32 z-0 h-[520px] w-[520px] rounded-full bg-tertiary/10 blur-3xl"></div>
+
+    <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-md flex-col items-center px-5 py-12 sm:py-16 md:max-w-[30rem]">
+      <!-- Header: foto + logo + bajada -->
+      <header class="reveal flex flex-col items-center text-center">
+        <img
+          src="/perfil.png"
+          alt="Matías Laporta"
+          class="h-32 w-32 rounded-full object-cover ring-4 ring-secondary shadow-[0_0_45px_-8px_rgba(243,205,116,0.55)]"
+        />
+        <img src="/nombre.png" alt="Matías Laporta" class="mt-6 h-12 w-auto" />
+        <p class="mt-5 max-w-sm text-sm leading-relaxed sm:text-base md:max-w-none">
+          <span class="text-secondary [text-shadow:_0_0_20px_rgba(243,205,116,0.35)]">Arquitecto de adquisición y crecimiento.</span>
+          <span class="mt-2 block text-background">Diseño la infraestructura comercial completa para empresas que necesitan escalar de forma predecible.</span>
+        </p>
+      </header>
+
+      <!-- Botones pequeños horizontales -->
+      <nav aria-label="Contacto directo" class="reveal mt-8 flex items-center justify-center gap-4">
+        {compact.map((b) => (
+          <a
+            href={b.href}
+            target={b.href.startsWith('http') ? '_blank' : undefined}
+            rel={b.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            aria-label={b.label}
+            class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-background shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_rgba(243,205,116,0.6)] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-dark"
+          >
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill={b.fill ? 'currentColor' : 'none'}
+              stroke={b.fill ? 'none' : 'currentColor'}
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              set:html={b.icon}
+            />
+          </a>
+        ))}
+      </nav>
+
+      <!-- Botones grandes verticales -->
+      <div class="reveal mt-8 flex w-full flex-col gap-4">
+        {links.map((l) => (
+          <a
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-card group flex w-full items-center gap-4 rounded-2xl border border-secondary bg-transparent px-5 py-4 text-background transition-all duration-300"
+          >
+            <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center text-secondary">
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill={l.fill ? 'currentColor' : 'none'}
+                stroke={l.fill ? 'none' : 'currentColor'}
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={l.icon}
+              />
+            </span>
+            <span class="flex-1 text-center text-base font-semibold">{l.label}</span>
+            <span class="h-6 w-6 flex-shrink-0" aria-hidden="true"></span>
+          </a>
+        ))}
+
+        <!-- Guardar contacto (vCard, genera descarga al hacer click) -->
+        <button
+          id="save-contact"
+          type="button"
+          class="link-card group flex w-full items-center gap-4 rounded-2xl border border-secondary bg-transparent px-5 py-4 text-background transition-all duration-300"
+        >
+          <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center text-secondary">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M19 8v6M22 11h-6" />
+            </svg>
+          </span>
+          <span class="flex-1 text-center text-base font-semibold">Guardar Contacto</span>
+          <span class="h-6 w-6 flex-shrink-0" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <footer class="reveal mt-auto pt-12 text-center">
+        <p class="text-sm font-medium leading-relaxed md:text-base">
+          <span class="text-background">Revisemos en una sesión tu ecosistema comercial.</span>
+          <span class="mt-1 block text-secondary [text-shadow:_0_0_20px_rgba(243,205,116,0.35)] md:mt-0">Si no hay fit, te digo exactamente dónde mirar.</span>
+        </p>
+        <p class="mt-5 text-xs text-gray-400">&copy; 2026 Matías Laporta. Todos los derechos reservados.</p>
+        <p class="mt-1 text-xs text-gray-400">Santiago, Chile</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // ---- Guardar contacto (vCard) ----
+  const saveBtn = document.getElementById('save-contact');
+  saveBtn?.addEventListener('click', () => {
+    const vcard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:Laporta;Matías;;;',
+      'FN:Matías Laporta',
+      'TEL;TYPE=CELL,VOICE:+56983306813',
+      'EMAIL;TYPE=WORK,INTERNET:asesor@matiaslaporta.com',
+      'URL:https://matiaslaporta.com/',
+      'END:VCARD',
+    ].join('\r\n');
+
+    const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Matias-Laporta.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+
+  // ---- Red de nodos interactiva (cian) ----
+  document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('tarjeta-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null };
+
+    function resize() {
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+
+    canvas.parentElement.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    canvas.parentElement.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 1.5;
+        this.vy = (Math.random() - 0.5) * 1.5;
+        this.radius = Math.random() * 2 + 1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#00E5FF';
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      resize();
+      particles = [];
+      for (let i = 0; i < 70; i++) particles.push(new Particle());
+      animate();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      for (let i = 0; i < particles.length; i++) {
+        if (mouse.x != null) {
+          let dxM = particles[i].x - mouse.x;
+          let dyM = particles[i].y - mouse.y;
+          let distM = Math.sqrt(dxM * dxM + dyM * dyM);
+          if (distM < 180) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 229, 255,${0.5 * (1 - distM / 180)})`;
+            ctx.lineWidth = 1.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+        for (let j = i; j < particles.length; j++) {
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 229, 255,${0.2 * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+  });
+</script>
+
+<style>
+  /* Botón grande: borde amarillo + glow amarillo al pasar el mouse o hacer click */
+  .link-card:hover,
+  .link-card:focus-visible,
+  .link-card:active {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(243, 205, 116, 0.45);
+    background-color: rgba(243, 205, 116, 0.08);
+    outline: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .link-card:hover,
+    .link-card:focus-visible,
+    .link-card:active {
+      transform: none;
+    }
+  }
+</style>
